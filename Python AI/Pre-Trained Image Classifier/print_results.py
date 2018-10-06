@@ -34,7 +34,14 @@
 
 def print_final_result(model, results_stats_dic):
         
-        print("\r\nFinal Result:")
+        print("\r\n** Final Result (statistics): **\r\n")
+
+        print('{0:<40} {1}'.format('Number of Images:', results_stats_dic['n_images']))
+        print('{0:<40} {1}'.format('Number of Dog Images:', results_stats_dic['n_dogs_img']))
+        print('{0:<40} {1}'.format('Number of "Not-a" Dog Images:', results_stats_dic['n_notdogs_img']))
+
+        print("\r\n")
+
         format_str = "| {0:<25}|{1:^12}|{2:^12}|{3:^12}|{4:^12}|"
 
         print('-'*80)
@@ -100,13 +107,8 @@ def print_results(results_dic, results_stats_dic, model, print_incorrect_dogs=Fa
            None - simply printing results.
     """
     if results_dic is not None:
-        print("\r\n** statistics **\r\n")
 
-        print('{0:<40} {1}'.format('Number of Images:', results_stats_dic['n_images']))
-        print('{0:<40} {1}'.format('Number of Dog Images:', results_stats_dic['n_dogs_img']))
-        print('{0:<40} {1}'.format('Number of "Not-a" Dog Images:', results_stats_dic['n_notdogs_img']))
-
-
+        print("\r\n** Result: **\r\n")
         num_keys = []
         pct_keys = []
         for k, v in results_stats_dic.items():
